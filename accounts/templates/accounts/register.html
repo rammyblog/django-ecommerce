@@ -1,0 +1,8 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<form method="post" class="order-form">
+{{ form.as_p }}
+<p><input type="submit" value='Register'></p>
+{% csrf_token %}
+</form>
+{% endblock %}

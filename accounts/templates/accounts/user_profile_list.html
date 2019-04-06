@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+{% block content %}
+    {% for profile in profile %}
+        {% if user.is_authenticated and profile.user.username == request.user.username %}
+        <ul>
+            <li><h3>{{ profile.first_name }} {{ profile.last_name }}</h3></li>
+            <p>{{profile.address}}</p>
+            <p>{{profile.phone}}</p>
+        {% if profile.default_address %}<p>  This is the default address</p> {% else %} 
+        <a href='{% url 'accounts:defaultaddress' profile.id%}'>Make Default Address</a>    
+        {% endif %}
+    </ul>
+{% else %}
+<p> You have no access to view this page</p>
+{% endif %}
+{% endfor %}
+{% endblock %}

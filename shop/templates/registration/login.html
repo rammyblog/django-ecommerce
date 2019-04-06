@@ -1,0 +1,8 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<form action="." method="post" class="order-form">
+{{ form.as_p }}
+<p><input type="submit" value={{next}}></p>
+{% csrf_token %}
+</form>
+{% endblock %}

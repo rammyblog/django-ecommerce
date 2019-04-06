@@ -1,0 +1,8 @@
+{% extends "shop/base.html" %}
+{% block content %}
+<h1>Your payment has not been processed</h1>
+<p>There was a problem processing your payment.</p>
+<p><a href={% url 'orders:admin_order_detail' order.id %}>Print Receipt</a></p>
+<p><a href={% url 'payment:process_again' order.id %}>Try Again</a></p>
+
+{% endblock %}
